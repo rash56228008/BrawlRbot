@@ -137,9 +137,11 @@ export function startMatch({ mode, map, brawlerId, gs, playerName, skinId = null
         trophyDelta: gs ? trophyDelta(mode, playerTrophies, !!r.win, r.place) : 0
       };
       if (gs) {
-        grantBattleRewards(gs, res);
+        const rewards = grantBattleRewards(gs, res);
+        res.rewards = rewards;
       }
       if (onEnd) onEnd(res);
+      return res;
     }
   };
 
