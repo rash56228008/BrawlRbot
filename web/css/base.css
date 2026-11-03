@@ -1,0 +1,84 @@
+/* BRAWL — базовые стили */
+:root {
+  --bg: #1a1233;
+  --bg2: #241a4d;
+  --panel: #2e2358;
+  --panel2: #3b2d73;
+  --gold: #ffd23f;
+  --gem: #4dd2ff;
+  --coin: #ffb51e;
+  --danger: #ff4d6d;
+  --ok: #4dd97a;
+  --text: #ffffff;
+  --text-dim: #b8aede;
+  --r-common: #b8c3cf;
+  --r-rare: #4dd2ff;
+  --r-super: #b44dff;
+  --r-epic: #ff4d6d;
+  --r-legend: #ffd23f;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+#app {
+  height: 100dvh;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+.screen.active { display: flex; }
+
+/* Экран загрузки */
+#loading {
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: radial-gradient(circle at 50% 35%, var(--bg2), var(--bg) 80%);
+}
+.loading-logo {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  background: linear-gradient(180deg, #fff, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 6px 24px rgba(255, 210, 63, .25);
+}
+.loading-bar {
+  width: 220px;
+  height: 10px;
+  border-radius: 6px;
+  background: #00000055;
+  overflow: hidden;
+}
+.loading-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--gold), #ff9d3f);
+  transition: width .3s;
+}
+.loading-hint { color: var(--text-dim); font-size: 14px; }
